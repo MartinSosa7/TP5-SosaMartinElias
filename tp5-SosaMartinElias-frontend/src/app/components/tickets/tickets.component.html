@@ -1,0 +1,31 @@
+<div>
+    <button type="button" class="btn btn-primary" (click)="agregarTicket()">nuevo ticket</button>
+</div>
+<div>
+
+    <button type="button" class="btn btn-primary" (click)="cargarTickets(catEspectador)">FILTRAR POR CATEGORIA</button>
+</div>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th scope="col">PRECIO DEL TICKET</th>
+            <th scope="col">CATEGORIA</th>
+            <th scope="col">FECHA DEL TICKET</th>
+            <th scope="col">ESPECTADOR</th>
+            <th scope="col">acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let ticket of ArrayTickets">
+            <td>{{ticket.precioTicket | currency:'ARS ':true:'1.1-2'}}</td>
+            <td>{{ticket.categoriaEspectador }}</td>
+            <td>{{ticket.fechaCompra }}</td>
+            <td>{{ticket.espectador}}</td>
+            <td>
+                <button type="button" class="btn btn-success" (click)="modificar(ticket)">MODIFICAR</button>
+                <button type="button" class="btn btn-danger" (click)="eliminar(ticket)">ELIMINAR</button>
+            </td>
+        </tr>
+    </tbody>
+</table>

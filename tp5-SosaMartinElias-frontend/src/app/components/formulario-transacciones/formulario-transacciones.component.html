@@ -1,0 +1,42 @@
+<div class="container">
+    <div style="background-color: darkblue;">
+        <h1 class="text-center rounded-4 mt-2 text-white" style="background-color:darkcyan;">
+            FORMULARIO TRANSACCION
+        </h1>
+        <form action="" class="p-4 text-white">
+
+            <div class="mb-3 mt-3">
+                <label for="cantidad">Cantidad:</label>
+                <input type="number" class="form-control" id="cantidad" placeholder="Ingrese Cantidad" name="cantidad" [(ngModel)]="transaccion.tasaConversion">
+            </div>
+
+            <label for="from-type" class="form-label">De:</label>
+            <select class="form-select" id="from-type" name="from-type" [(ngModel)]="transaccion.monedaOrigen">
+                <option value="ARS">ARS</option>
+                <option value="USD">USD</option>
+                <option value="EUR">EUR</option>
+            </select>
+            <br>
+            
+            <label for="to-type" class="form-label">A:</label>
+            <select class="form-select" id="to-type" name="to-type" [(ngModel)]="transaccion.monedaDestino">
+                <option value="ARS">ARS</option>
+                <option value="USD">USD</option>
+                <option value="EUR">EUR</option>
+            </select>
+            <br>
+            
+            <div class="col-md-6">
+                <label for="email" class="form-label">Email:</label>
+                <input type="email" class="form-control" id="email" name="email" [(ngModel)]="transaccion.emailCliente">
+            </div>
+
+            <div class="d-grid">
+                <button class="btn btn-warning"
+                    (click)="conversion(transaccion.tasaConversion,transaccion.monedaOrigen,transaccion.monedaDestino)">Convertir</button>
+            </div>
+        </form>
+
+
+    </div>
+</div>

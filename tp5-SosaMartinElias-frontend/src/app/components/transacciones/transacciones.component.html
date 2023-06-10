@@ -1,0 +1,43 @@
+<div class="container">
+    <br>
+    <button (click)="getTransacciones(monedaOrigen,monedaDestino)">LISTA SIN FILTROS</button>
+    <br>
+    <form>
+        <label for="from-type" class="form-label">MONEDA ORIGEN</label>
+        <select class="form-select" id="from-type" name="monedaOrigen" [(ngModel)]="monedaOrigen">
+            <option value="ARS">ARS</option>
+            <option value="USD">USD</option>
+            <option value="EUR">EUR</option>
+        </select>
+        <label for="from-type" class="form-label">MONEDA DESTINO</label>
+        <select class="form-select" id="from-type" name="monedaDestino" [(ngModel)]="monedaDestino">
+            <option value="ARS">ARS</option>
+            <option value="USD">USD</option>
+            <option value="EUR">EUR</option>
+        </select>
+        <button (click)="getTransacciones(monedaOrigen,monedaDestino)">FILTRAR</button>
+    </form>
+    <br>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th scope="col">MONEDA ORIGEN</th>
+                <th scope="col">CANTIDAD ORIGEN</th>
+                <th scope="col">MONEDA DESTINO</th>
+                <th scope="col">CANTIDAD DESTINO</th>
+                <th scope="col">TASA CONVERSION</th>
+                <th scope="col">EMAIL</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let transaccion of ArrayTransacciones">
+                <td>{{transaccion.monedaOrigen}}</td>
+                <td>{{transaccion.cantidadOrigen}}</td>
+                <td>{{transaccion.monedaDestino}}</td>
+                <td>{{transaccion.cantidadOrigen}}</td>
+                <td>{{transaccion.tasaConversion}}</td>
+                <td>{{transaccion.emailCliente}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
