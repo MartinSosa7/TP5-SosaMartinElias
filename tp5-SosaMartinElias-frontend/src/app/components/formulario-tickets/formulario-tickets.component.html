@@ -1,0 +1,48 @@
+<form>
+    <div class="mb-3">
+        <label for="Espectador" class="form-label">Espectador: </label>
+        <select id="Espectador" class="form-select" name="Espectador" [(ngModel)]="ticket.espectador">
+            <option *ngFor="let espectador of arrayEspectadores" [ngValue]="espectador" [selected]="espectador == ticket.espectador">{{espectador.apellido}}, {{espectador.nombre}}</option>
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <label for="precioReal" class="form-label">Precio Real: </label>
+        <input type="number" class="form-control" id="precioReal" name="precioReal"
+            [(ngModel)]="ticket.precioTicket">
+    </div>
+    
+    <div class="mb-3">
+        <label for="tipoEspectador" class="form-label">Tipo de Espectador: </label>
+        <select id="tipoEspectador" class="form-select" name="tipoEspectador" [(ngModel)]="ticket.categoriaEspectador"
+            (ngModelChange)="calcularDescuento()">
+            <option selected>Eliga el tipo de Espectador</option>
+            <option value="e">Extranjero</option>
+            <option value="l">Local</option>
+        </select>
+    </div>
+    
+    <div
+        *ngIf="ticket.precioTicket != null && (ticket.categoriaEspectador == 'l' || ticket.categoriaEspectador == 'e')">
+        <label for="precioCalculado" class="form-label">Tipo de Espectador: </label>
+        {{descuento}}
+    </div>
+    
+    <div *ngIf="accion == 'new'">
+        <button type="button" class="btn btn-primary" (click)="postTicket()">Generar ticket</button>
+    </div>
+    
+    <div *ngIf="accion == 'update'">
+        <button type="button" class="btn btn-success" (click)="putTicket()">MODIFICAR</button>
+    
+    </div>
+
+</form>
+<br>
+
+<div>
+    <button type="button" class="btn btn-primary" (click)="verTickets()">ver lista</button>
+</div>
+
+
+

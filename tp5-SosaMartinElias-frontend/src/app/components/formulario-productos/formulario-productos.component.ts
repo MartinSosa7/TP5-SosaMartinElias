@@ -10,15 +10,16 @@ import { ServiciosProductoService } from 'src/app/services/servicios-producto.se
 })
 export class FormularioProductosComponent implements OnInit {
 
-  producto!:Producto;
+  producto:Producto;
   constructor(private serviciosProducto: ServiciosProductoService) { 
+    this.producto = new Producto();
   }
 
   ngOnInit(): void {
   }
 
-  createProducto(nuevoProducto: Producto){
-    this.serviciosProducto.postProducto(nuevoProducto).subscribe(
+  createProducto(){
+    this.serviciosProducto.postProducto(this.producto).subscribe(
       result=>{
         alert(result.msg);
         this.producto = new Producto();

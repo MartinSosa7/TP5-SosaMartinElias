@@ -25,17 +25,15 @@
                 <th scope="col">CANTIDAD ORIGEN</th>
                 <th scope="col">MONEDA DESTINO</th>
                 <th scope="col">CANTIDAD DESTINO</th>
-                <th scope="col">TASA CONVERSION</th>
                 <th scope="col">EMAIL</th>
             </tr>
         </thead>
         <tbody>
             <tr *ngFor="let transaccion of ArrayTransacciones">
                 <td>{{transaccion.monedaOrigen}}</td>
-                <td>{{transaccion.cantidadOrigen}}</td>
-                <td>{{transaccion.monedaDestino}}</td>
-                <td>{{transaccion.cantidadOrigen}}</td>
                 <td>{{transaccion.tasaConversion}}</td>
+                <td>{{transaccion.monedaDestino}}</td>
+                <td>{{transaccion.cantidadDestino}}</td>
                 <td>{{transaccion.emailCliente}}</td>
             </tr>
         </tbody>

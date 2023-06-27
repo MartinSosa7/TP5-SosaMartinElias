@@ -10,7 +10,8 @@ import { FormularioProductosComponent } from './components/formulario-productos/
 import { HeaderComponent } from './components/header/header.component';
 import { TransaccionesComponent } from './components/transacciones/transacciones.component';
 import { FormularioTransaccionesComponent } from './components/formulario-transacciones/formulario-transacciones.component';
-import { TicketsComponent } from './components/tickets/tickets.component'
+import { TicketsComponent } from './components/tickets/tickets.component';
+import { FormularioTicketsComponent } from './components/formulario-tickets/formulario-tickets.component'
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { TicketsComponent } from './components/tickets/tickets.component'
     HeaderComponent,
     TransaccionesComponent,
     FormularioTransaccionesComponent,
-    TicketsComponent
+    TicketsComponent,
+    FormularioTicketsComponent
   ],
   imports: [
     BrowserModule,

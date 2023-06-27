@@ -5,9 +5,9 @@
             <input type="text" class="form-control" id="nombre" name="nombre" [(ngModel)]="producto.nombre">
         </div>
         <div class="mb-3">
-            <label for="imagen" class="form-label">Descripcion</label>
-            <textarea class="form-control" placeholder="ESCRIBIR DESCRIPCION AQUI" name="imagen"
-                [(ngModel)]="producto.imagen" id="imagen" style="width: 500px; height: 200px;"></textarea>
+            <label for="descripcion" class="form-label">Descripcion</label>
+            <textarea class="form-control" placeholder="ESCRIBIR DESCRIPCION AQUI" name="descripcion"
+                [(ngModel)]="producto.descripcion" id="descripcion" style="width: 500px; height: 200px;"></textarea>
         </div>
         <div class="mb-3">
             <label for="imagen" class="form-label">URL de la imagen</label>
@@ -27,6 +27,11 @@
             <label class="form-check-label" for="destacado">¿producto destacado?</label>
         </div>
 
-        <button (click)="createProducto(producto)" class="btn btn-primary">Submit</button>
+        <button (click)="createProducto()" class="btn btn-primary">Crear</button>
     </form>
+</div>
+
+<div>
+    {{producto.precio}}
+    {{producto.destacado}}
 </div>

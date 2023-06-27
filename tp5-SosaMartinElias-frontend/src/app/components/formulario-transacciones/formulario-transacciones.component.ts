@@ -11,7 +11,9 @@ import { ServiciosTransaccionService } from 'src/app/services/servicios-transacc
 export class FormularioTransaccionesComponent implements OnInit {
 
   transaccion!:Transaccion;
-  constructor(private serviciosTransaccion: ServiciosTransaccionService) { }
+  constructor(private serviciosTransaccion: ServiciosTransaccionService) { 
+    this.transaccion = new Transaccion();
+  }
 
   ngOnInit(): void {
   }

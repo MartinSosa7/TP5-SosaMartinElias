@@ -25,6 +25,10 @@ export class ServiciosTransaccionService {
   }
 
   getTransacciones(monedaOrigen:any, monedaDestino:any):Observable<any>{
+    if(monedaOrigen == null && monedaDestino == null){
+      monedaDestino = '';
+      monedaOrigen = '';
+    }
     const HttpOptions = {
       headers: new HttpHeaders({
 

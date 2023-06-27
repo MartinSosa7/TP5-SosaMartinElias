@@ -21,11 +21,16 @@ ticketCtrl.postTicket = async (req, res) => {
 
 ticketCtrl.getTickets = async (req, res) => {
     let criteria = {};
-    if(req.query.categoriaEspectador != null){
+    if(req.query.categoriaEspectador != ''){
         criteria.categoriaEspectador = req.query.categoriaEspectador;
     }
-    var tickets = await Ticket.find(criteria);
+    var tickets = await Ticket.find(criteria).populate('espectador');
     res.json(tickets);
+}
+
+ticketCtrl.getTicket = async (req, res) =>{
+    var ticket = await Ticket.findById(req.params.id);
+    res.json(ticket);
 }
 
 ticketCtrl.deleteTicket = async (req, res) => {
@@ -47,7 +52,7 @@ ticketCtrl.deleteTicket = async (req, res) => {
 ticketCtrl.putTicket = async (req, res) => {
     var nuevoTicket = new Ticket(req.body);
     try {
-        await Ticket.updateOne({ _id: req.params.id }, nuevoTicket);
+        await Ticket.updateOne({ _id: req.body._id }, nuevoTicket);
         res.json({
             status: '1',
             msg: 'Ticket actualizado'

@@ -3,7 +3,7 @@ const transaccionCtrl = {};
 
 transaccionCtrl.getTransacciones = async (req, res) => {
     var criteria = {};
-    if((req.query.monedaOrigen != null) && (req.query.monedaDestino !=null)){
+    if((req.query.monedaOrigen != '') && (req.query.monedaDestino != '')){
         criteria.monedaOrigen = req.query.monedaOrigen;
         criteria.monedaDestino = req.query.monedaDestino;
     }

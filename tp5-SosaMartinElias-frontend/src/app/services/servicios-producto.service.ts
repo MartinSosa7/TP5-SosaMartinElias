@@ -17,7 +17,7 @@ export class ServiciosProductoService {
 
   getProductos(destacado: any):Observable<any> {
     if(destacado == false){
-      destacado = null;
+      destacado = '';
     }
     const HttpOptions = {
       headers: new HttpHeaders({

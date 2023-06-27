@@ -1,10 +1,16 @@
 <div>
-    <button type="button" class="btn btn-primary" (click)="agregarTicket()">nuevo ticket</button>
+    <button type="button" class="btn btn-success" (click)="agregarTicket()">nuevo ticket</button>
 </div>
-<div>
 
-    <button type="button" class="btn btn-primary" (click)="cargarTickets(catEspectador)">FILTRAR POR CATEGORIA</button>
+<div>
+    <button type="button" class="btn btn-danger" (click)="cargarTickets('')">QUITAR FILTROS</button>
 </div>
+<label for="from-type" class="form-label">CATEGORIA</label>
+<select class="form-select" id="from-type" name="monedaOrigen" [(ngModel)]="catEspectador" (change)="cargarTickets(catEspectador)">
+    <option value="e">Extranjero</option>
+    <option value="l">Local</option>
+</select>
+
 
 <table class="table table-bordered table-striped">
     <thead>
@@ -21,7 +27,7 @@
             <td>{{ticket.precioTicket | currency:'ARS ':true:'1.1-2'}}</td>
             <td>{{ticket.categoriaEspectador }}</td>
             <td>{{ticket.fechaCompra }}</td>
-            <td>{{ticket.espectador}}</td>
+            <td>{{ticket.espectador.dni}}</td>
             <td>
                 <button type="button" class="btn btn-success" (click)="modificar(ticket)">MODIFICAR</button>
                 <button type="button" class="btn btn-danger" (click)="eliminar(ticket)">ELIMINAR</button>

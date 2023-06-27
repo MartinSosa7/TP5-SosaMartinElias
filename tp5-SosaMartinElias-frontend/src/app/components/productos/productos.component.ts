@@ -17,10 +17,10 @@ export class ProductosComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.cargarProductos(true);
+    this.cargarProductos(false);
   }
 
-  cargarProductos(destacado: boolean){
+  cargarProductos(destacado: any){
     this.ArrayProductos = new Array<Producto>();
     this.serviciosProducto.getProductos(destacado).subscribe(
       result=>{
